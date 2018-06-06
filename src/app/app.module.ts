@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 // views
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { AboutModule } from './components/about/about.module';
 
 // shared
 import { HeaderComponent } from './shared/header/header.component';
+import { SearchPipe } from './filters/search.pipe';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -23,10 +25,12 @@ const appRoutes: Routes = [
     HomeComponent,
     AboutComponent,
     // shared
-    HeaderComponent
+    HeaderComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

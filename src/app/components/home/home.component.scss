@@ -1,0 +1,17 @@
+$gray-bck: #cdcdcd;
+
+:host {
+    display: block;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    background: $gray-bck;
+
+    .project-box {
+        border: solid 1px black;
+        margin: 10px;
+        width: calc((100% / 3) - 20px);
+    }
+}

@@ -1,3 +1,21 @@
-<p>
-  home works!
-</p>
+<div class="sub-header">
+  <div class="tabs">
+    <button (click)="switchTabs('active')">Active</button>
+    <button (click)="switchTabs('archive')">Archive</button>
+  </div>
+
+  <div>
+    <button (click)="createProject()">Create project</button>
+  </div>
+
+  <div>
+    <input class="search" type="text" [(ngModel)]="searchText">
+  </div>
+</div>
+
+<div class="content">
+  <div class="project-box" 
+       *ngFor="let project of projects | search: searchText">
+       <h4>{{project.name}}</h4>
+  </div>
+</div>
