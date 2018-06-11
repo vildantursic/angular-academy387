@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 import { AboutModule } from './components/about/about.module';
 
@@ -20,6 +21,8 @@ const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'entity', component: EntityComponent },
   { path: 'about', component: AboutComponent },
+  { path: '',   redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent }
 ]
 
 @NgModule({
@@ -31,7 +34,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     SearchPipe,
     ItemDetailsComponent,
-    EntityComponent
+    EntityComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

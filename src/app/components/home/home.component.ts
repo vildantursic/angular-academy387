@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Project } from '../../models/project'
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,10 @@ export class HomeComponent implements OnInit {
 
   currentTab = 'active';
   searchText = '';
+  project = {
+    name: '',
+    description: ''
+  }
 
   projects = [
     {
@@ -27,13 +32,29 @@ export class HomeComponent implements OnInit {
   }
 
   createProject() {
-    let project = {
-      id: 4,
-      name: 'Project 4',
-      description: ''
-    }
+    //this.project.id = this.projects.length + 1
+    
+    Object.defineProperty(this.project, 'id', {
+      enumerable: true,
+      configurable: true,
+      writable: true,
+      value: this.projects.length + 1
+    });
 
-    this.projects.push(project);
+//    this.projects.push(this.project);
+  }
+
+  submitted = false;
+  model = new Project(1, 'Name', '')
+ 
+  onSubmit() { 
+    console.log(this.model)
+    this.submitted = true;
+    this.projects.push(this.model)
+  }
+ 
+  newHero() {
+    this.model = new Project(1, '', '');
   }
 
   onSelected(value) {

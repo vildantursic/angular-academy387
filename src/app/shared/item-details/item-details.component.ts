@@ -3,13 +3,7 @@ import {
   OnInit,
   Input,
   Output,
-  EventEmitter,
-  AfterViewInit,
-AfterViewChecked,
-OnDestroy,
-OnChanges,
-AfterContentInit,
-AfterContentChecked,
+  EventEmitter
  } from '@angular/core';
 
 interface Item {
@@ -23,12 +17,7 @@ interface Item {
   templateUrl: './item-details.component.html',
   styleUrls: ['./item-details.component.css']
 })
-export class ItemDetailsComponent implements OnInit, 
-                                             AfterContentInit,
-                                             AfterContentChecked,
-                                             AfterViewInit,
-                                             AfterViewChecked,
-                                             OnDestroy {
+export class ItemDetailsComponent implements OnInit {
 
   @Input() item: Item
 
@@ -40,21 +29,6 @@ export class ItemDetailsComponent implements OnInit,
 
   ngOnInit() {
     this.selected.emit('ngOnInit');
-  }
-  ngAfterContentInit() {
-    this.selected.emit('ngAfterContentInit');    
-  }
-  ngAfterContentChecked() {
-    this.selected.emit('AfterContentChecked');    
-  }
-  ngAfterViewInit() {
-    this.selected.emit('AfterViewInit');    
-  }
-  ngAfterViewChecked() {
-    this.selected.emit('AfterViewChecked');    
-  }
-  ngOnDestroy() {
-    this.selected.emit('OnDestroy');    
   }
 
 }
