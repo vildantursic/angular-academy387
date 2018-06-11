@@ -1,0 +1,9 @@
+:host {
+    display: block
+}
+
+.project-box {
+    border: solid 1px black;
+    margin: 10px;
+    width: 100%;
+}

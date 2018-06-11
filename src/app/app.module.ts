@@ -13,9 +13,12 @@ import { AboutModule } from './components/about/about.module';
 // shared
 import { HeaderComponent } from './shared/header/header.component';
 import { SearchPipe } from './filters/search.pipe';
+import { ItemDetailsComponent } from './shared/item-details/item-details.component';
+import { EntityComponent } from './components/entity/entity.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'entity', component: EntityComponent },
   { path: 'about', component: AboutComponent },
 ]
 
@@ -26,7 +29,9 @@ const appRoutes: Routes = [
     AboutComponent,
     // shared
     HeaderComponent,
-    SearchPipe
+    SearchPipe,
+    ItemDetailsComponent,
+    EntityComponent
   ],
   imports: [
     BrowserModule,

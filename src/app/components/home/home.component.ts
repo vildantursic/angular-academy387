@@ -14,17 +14,6 @@ export class HomeComponent implements OnInit {
     {
       id: 1,
       name: 'Project 1',
-      date: Date()
-    },
-    {
-      id: 2,
-      name: 'Project 2',
-      date: Date()
-    },
-    {
-      id: 3,
-      name: 'Project 3',
-      date: Date()
     }
   ]
   
@@ -41,9 +30,13 @@ export class HomeComponent implements OnInit {
     let project = {
       id: 4,
       name: 'Project 4',
-      date: Date()
+      description: ''
     }
 
     this.projects.push(project);
+  }
+
+  onSelected(value) {
+    console.log(value);
   }
 }

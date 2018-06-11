@@ -5,7 +5,7 @@
   </div>
 
   <div>
-    <button (click)="createProject()">Create project</button>
+    <button (click)="createEntity()">Create entity</button>
   </div>
 
   <div>
@@ -15,7 +15,7 @@
 
 <div class="content">
   <app-item-details 
-    *ngFor="let project of projects | search:['name', searchText]"
-    [item]="project" (selected)="onSelected($event)">
+    *ngFor="let entity of entities | search:['name', searchText]"
+    [item]="entity">
   </app-item-details>
 </div>
