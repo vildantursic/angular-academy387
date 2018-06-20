@@ -1,4 +1,5 @@
 <div class="project-box">
   <h4 (click)="selected.emit(item.id)">{{item?.name}}</h4>
   <p>{{item?.description}}</p>
+  <button (click)="deleteProject.emit(item?._id)">Delete Project</button>
 </div>

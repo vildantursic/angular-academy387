@@ -22,6 +22,7 @@ export class ItemDetailsComponent implements OnInit {
   @Input() item: Item
 
   @Output() selected: EventEmitter<any> = new EventEmitter();
+  @Output() deleteProject: EventEmitter<any> = new EventEmitter();
 
   constructor() {
     this.selected.emit('constructor');    

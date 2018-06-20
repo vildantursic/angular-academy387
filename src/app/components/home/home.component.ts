@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../../models/project'
+import { HomeService } from './home.service'
 
 @Component({
   selector: 'app-home',
@@ -15,16 +16,18 @@ export class HomeComponent implements OnInit {
     description: ''
   }
 
-  projects = [
-    {
-      id: 1,
-      name: 'Project 1',
-    }
-  ]
+  projects = []
   
-  constructor() { }
+  constructor(private homeService: HomeService) { }
 
   ngOnInit() {
+    this.getProjects();
+  }
+
+  getProjects() {
+    this.homeService.getProjects().subscribe((response: any) => {
+      this.projects = response;
+    });
   }
 
   switchTabs(tab) {
@@ -45,16 +48,27 @@ export class HomeComponent implements OnInit {
   }
 
   submitted = false;
-  model = new Project(1, 'Name', '')
+  model = new Project('Name', '')
  
   onSubmit() { 
     console.log(this.model)
     this.submitted = true;
-    this.projects.push(this.model)
+    // this.projects.push(this.model)
+    this.homeService.createProject(this.model).subscribe((response: any) => {
+      console.log(response);
+      this.getProjects();
+    });
   }
  
+  deleteProject(id) {
+    this.homeService.deleteProject(id).subscribe((response: any) => {
+      console.log(response);
+      this.getProjects();
+    })
+  }
+
   newHero() {
-    this.model = new Project(1, '', '');
+    this.model = new Project('', '');
   }
 
   onSelected(value) {

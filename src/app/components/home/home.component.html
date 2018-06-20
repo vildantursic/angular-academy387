@@ -38,6 +38,6 @@
 <div class="content">
   <app-item-details 
     *ngFor="let project of projects | search:['name', searchText]"
-    [item]="project" (selected)="onSelected($event)">
+    [item]="project" (selected)="onSelected($event)" (deleteProject)="deleteProject($event)">
   </app-item-details>
 </div>

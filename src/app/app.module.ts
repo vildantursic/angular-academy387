@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // views
 import { AppComponent } from './app.component';
@@ -16,6 +17,10 @@ import { HeaderComponent } from './shared/header/header.component';
 import { SearchPipe } from './filters/search.pipe';
 import { ItemDetailsComponent } from './shared/item-details/item-details.component';
 import { EntityComponent } from './components/entity/entity.component';
+
+// services
+import { HomeService } from './components/home/home.service';
+
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -40,13 +45,17 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     ),
-    AboutModule
+    AboutModule,
   ],
-  providers: [],
+  providers: [
+    // services
+    HomeService
+  ],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
