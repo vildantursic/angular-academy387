@@ -26,7 +26,9 @@ export class HomeComponent implements OnInit {
 
   getProjects() {
     this.homeService.getProjects().subscribe((response: any) => {
-      this.projects = response;
+      // this.projects = response;
+      // localStorage.setItem('projects', JSON.stringify(this.projects))
+      this.projects = JSON.parse(localStorage.getItem('projects'));
     });
   }
 
