@@ -19,7 +19,11 @@ import { ItemDetailsComponent } from './shared/item-details/item-details.compone
 import { EntityComponent } from './components/entity/entity.component';
 
 // services
-import { HomeService } from './components/home/home.service';
+import { MainService } from './services/main.service';
+import { AboutService } from './services/about/about.service';
+import { HomeService } from './services/home/home.service';
+
+import { DataShareService } from './services/data-share/data-share.service';
 
 
 const appRoutes: Routes = [
@@ -54,7 +58,11 @@ const appRoutes: Routes = [
   ],
   providers: [
     // services
-    HomeService
+    MainService,
+    AboutService,
+    HomeService,
+    // shared
+    DataShareService
   ],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

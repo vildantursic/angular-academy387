@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../../models/project'
-import { HomeService } from './home.service'
+import { HomeService } from '../../services/home/home.service'
+import { DataShareService } from '../../services/data-share/data-share.service';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,8 @@ export class HomeComponent implements OnInit {
 
   projects = []
   
-  constructor(private homeService: HomeService) { }
+  constructor(private homeService: HomeService,
+              private dataShareService: DataShareService) {}
 
   ngOnInit() {
     this.getProjects();
@@ -26,9 +28,8 @@ export class HomeComponent implements OnInit {
 
   getProjects() {
     this.homeService.getProjects().subscribe((response: any) => {
-      // this.projects = response;
-      // localStorage.setItem('projects', JSON.stringify(this.projects))
-      this.projects = JSON.parse(localStorage.getItem('projects'));
+      this.projects = response;
+      this.dataShareService.data.next(this.projects.length) 
     });
   }
 
