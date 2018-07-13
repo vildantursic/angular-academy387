@@ -36,8 +36,12 @@
 </form>
 
 <div class="content">
-  <app-item-details 
+  <app-item-details
     *ngFor="let project of projects | search:['name', searchText]"
     [item]="project" (selected)="onSelected($event)" (deleteProject)="deleteProject($event)">
   </app-item-details>
+
+  <app-item-details #itemDetails (selected)="onSelected($event)" (deleteProject)="deleteProject($event)"></app-item-details>
+
+  <button #myButton (click)="clickFunc()">Click me</button>
 </div>

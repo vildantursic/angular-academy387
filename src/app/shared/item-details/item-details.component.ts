@@ -19,7 +19,7 @@ interface Item {
 })
 export class ItemDetailsComponent implements OnInit {
 
-  @Input() item: Item
+  @Input() item: Item;
 
   @Output() selected: EventEmitter<any> = new EventEmitter();
   @Output() deleteProject: EventEmitter<any> = new EventEmitter();
@@ -30,6 +30,10 @@ export class ItemDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.selected.emit('ngOnInit');
+  }
+
+  changeProject() {
+    this.item = { id: 1, name: 'test 2', description: 'test 2' };
   }
 
 }
